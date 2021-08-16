@@ -41,8 +41,17 @@ def main():
         #execute movement (of the player and of the hints)
         player.move()
         hint0.approach()
+        print(hint0.collide(player))
+        if hint0.collide(player):  # Gegen Hindernis gestoßen.
+            break
         hint1.approach()
+        print(hint1.collide(player))
+        if hint1.collide(player):  # Gegen Hindernis gestoßen.
+            break
         hint2.approach()
+        print(hint2.collide(player))
+        if hint2.collide(player):  # Gegen Hindernis gestoßen.
+            break
  
         for event in pygame.event.get():
             if event.type == pygame.QUIT:

@@ -33,10 +33,8 @@ class Hints():
         width = 10
         initial = [800, 950, 1100, 1150]
         def __init__(self):
-                self.x_pos = random.choice(self.
-                                           initial)
-                self.x_vel = 10
-                # Kann man auch verallgemeinern.
+                self.x_pos = random.choice(self.initial)
+                self.x_vel = 10  # Kann man auch verallgemeinern.
 
         def approach(self):
                 "Calculate position of hint on next frame."
@@ -46,6 +44,23 @@ class Hints():
 
         def isGone(self):
                 return self.x_pos <= 0
+
+        def collide(self, player):
+                """
+                left_up = [200, player.y_pos + 440]
+                left_down = [200, player.y_pos + 500]
+                right_up = [225, player.y_pos + 440]
+                right_down = [225, player.y_pos + 500]
+                """
+                return (200 <= self.x_pos <= 225) and\
+                       (player.y_pos + 440 <= 500 - self.height <= \
+                        player.y_pos + 500)\
+                       or\
+                       (200 <= self.x_pos + 10 <= 225) and\
+                       (player.y_pos + 440 <= 500 - self.height + 10 <=\
+                        player.y_pos + 500)
+                       
+        
 
 
 """
