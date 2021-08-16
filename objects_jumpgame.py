@@ -46,13 +46,13 @@ class Hints():
                 return self.x_pos <= 0
 
         def collide(self, player):
-                """
-                left_up = [200, player.y_pos + 440]
-                left_down = [200, player.y_pos + 500]
-                right_up = [225, player.y_pos + 440]
-                right_down = [225, player.y_pos + 500]
-                """
-                return (200 <= self.x_pos <= 225) and\
+		"""
+		Returns True, if the upper right corner
+		or the upper left corner (or both) of
+		the obstacle is in the area of the player,
+		else it returns False.       
+		"""
+                return (200 <= self.x_pos <= 225) and\  
                        (player.y_pos + 440 <= 500 - self.height <= \
                         player.y_pos + 500)\
                        or\
